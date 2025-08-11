@@ -1,0 +1,29 @@
+{
+    "name": "theme-repo-template",
+    "version": "1.0.0",
+    "description": "A starter theme for FSE.  Will generally be overwritten.",
+    "author": {
+        "name": "George Stephanis",
+        "url": "https://georgestephanis.wordpress.com"
+    },
+    "license": "GPL-3.0",
+    "keywords": [
+        "wordpress",
+        "theme"
+    ],
+    "homepage": "https://github.com/georgestephanis/theme-repo-template",
+    "repository": "https://github.com/georgestephanis/theme-repo-template",
+    "bugs": "https://github.com/georgestephanis/theme-repo-template/issues",
+    "private": false,
+    "engines": {
+        "node": ">=20.0",
+        "npm": ">=10.0"
+    },
+    "devDependencies": {
+        "@wordpress/scripts": "^30.21.0",
+        "sass": "^1.90.0"
+    },
+    "scripts": {
+        "build": "sass sass/style.scss:style.css --style=expanded --source-map"
+    }
+}

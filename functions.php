@@ -1,13 +1,13 @@
 <?php
 /**
- * Theme Editor Template theme functions and definitions.
+ * Theme Repo Template theme functions and definitions.
  *
  * @link    https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package ThemeEditorTemplate_Theme
+ * @package ThemeRepoTemplate_Theme
  */
 
-namespace ThemeEditorTemplate\Theme;
+namespace ThemeRepoTemplate\Theme;
 
 /**
  * Handle addition of any enqueues for the front-end.

@@ -31,6 +31,23 @@ const traverseDirectory = async ( dirPath, callback ) => {
 };
 
 /**
+ * Implementation of php's `ucwords()` method.
+ *
+ * Based on https://gist.github.com/rickycheers/4541395
+ *
+ * @returns string
+ */
+String.prototype.ucwords = function() {
+	const str = this.toLowerCase();
+	return str.replace(
+		/(^([a-zA-Z\p{M}]))|([ -][a-zA-Z\p{M}])/g,
+		function(s){
+			return s.toLocaleUpperCase();
+		}
+	);
+};
+
+/**
  * Build a template using envs
  * @param {string} filePath
  */
@@ -48,8 +65,8 @@ const buildTemplate = async ( filePath ) => {
 		};
 	} else {
 		replacements = {
-			'Theme Repo Template': ( String(repository.name).replace( '-', ' ' ).toLocaleUpperCase() ),
-            'ThemeRepoTemplate': ( String(repository.name).replace( '-', ' ' ).toLocaleUpperCase().replace( ' ', '' ) ),
+			'Theme Repo Template': ( String(repository.name).replace( /[\W_]+/g, ' ' ).ucwords() ),
+			'ThemeRepoTemplate': ( String(repository.name).replace( /[\W_]+/g, ' ' ).ucwords().replace( ' ', '' ) ),
 			'theme-repo-template': repository.name.toLowerCase(),
 			'A starter theme for FSE.  Will generally be overwritten.': repository.description ?? 'A spiffy new theme.',
 			'georgestephanis/theme-repo-template': repository.full_name,

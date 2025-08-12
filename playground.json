@@ -20,9 +20,9 @@
 		},
 		{
 			"step": "installTheme",
-			"pluginData": {
+			"themeData": {
 				"resource": "url",
-				"slug": "https://github-proxy.com/proxy/?repo=georgestephanis/theme-repo-template"
+				"path": "https://github-proxy.com/proxy/?repo=georgestephanis/theme-repo-template"
 			},
 			"options": {
 				"activate": true

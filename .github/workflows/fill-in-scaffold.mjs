@@ -44,7 +44,7 @@ const buildTemplate = async ( filePath ) => {
 		replacements = {
 			'EXAMPLE_REPO_NAME': repository.name,
 			'EXAMPLE_REPO_DESCRIPTION': repository.description ?? 'A spiffy new theme.',
-			'EXAMPLE_REPO_PLAYGROUND_URL': 'https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/' + repository.full_name + '/main/playground.json'
+			'EXAMPLE_REPO_PLAYGROUND_URL': 'https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/' + repository.full_name + '/refs/heads/main/playground.json'
 		};
 	} else {
 		replacements = {

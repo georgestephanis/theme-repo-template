@@ -1,4 +1,5 @@
 {
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
 	"landingPage": "/",
 	"preferredVersions": {
 		"php": "latest",
@@ -22,7 +23,7 @@
 			"step": "installTheme",
 			"themeData": {
 				"resource": "url",
-				"path": "https://github-proxy.com/proxy/?repo=georgestephanis/theme-repo-template"
+				"url": "https://github-proxy.com/proxy/?repo=georgestephanis/theme-repo-template"
 			},
 			"options": {
 				"activate": true
@@ -30,8 +31,7 @@
 		},
 		{
 			"step": "login",
-			"username": "admin",
-			"password": "password"
+			"username": "admin"
 		}
 	]
 }

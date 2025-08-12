@@ -43,8 +43,8 @@ const buildTemplate = async ( filePath ) => {
 	if ( 'README.md' === filePath ) {
 		replacements = {
 			'EXAMPLE_REPO_NAME': repository.name,
-			'EXAMPLE_REPO_DESCRIPTION': repository.description ?? '',
-			'EXAMPLE_REPO_URL': repository.homepage ?? 'https://wordpress.org',
+			'EXAMPLE_REPO_DESCRIPTION': repository.description ?? 'A spiffy new theme.',
+			'EXAMPLE_REPO_PLAYGROUND_URL': 'https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/' . repository.full_name . '/main/playground.json'
 		};
 	} else {
 		replacements = {
@@ -52,7 +52,7 @@ const buildTemplate = async ( filePath ) => {
             'ThemeRepoTemplate': ( String(repository.name).replace( '-', ' ' ).toLocaleUpperCase().replace( ' ', '' ) ),
 			'theme-repo-template': repository.name.toLowerCase(),
 			'A starter theme for FSE.  Will generally be overwritten.': repository.description ?? 'A spiffy new theme.',
-			'https://github.com/georgestephanis/theme-repo-template': repository.homepage ?? 'https://wordpress.org',
+			'georgestephanis/theme-repo-template': repository.full_name,
 		};
 	}
 

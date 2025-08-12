@@ -2,4 +2,4 @@
 EXAMPLE_REPO_DESCRIPTION
 
 # Testing:
-[Link](EXAMPLE_REPO_URL)
+[Test it out on Playground](EXAMPLE_REPO_PLAYGROUND_URL)

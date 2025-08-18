@@ -4,7 +4,7 @@ import { writeFile } from 'fs/promises';
 import { join as joinPath } from 'path';
 import process from 'process';
 
-const repository = JSON.parse( process.argv[2] );
+const repository = JSON.parse( process.argv[ 2 ] );
 const skip_dirs = [ '.github', '.git' ];
 
 /**
@@ -24,7 +24,8 @@ const traverseDirectory = async ( dirPath, callback ) => {
 
 		if ( statSync( filePath ).isFile() ) {
 			await callback( filePath );
-		} else { // Recursively traverse directories
+		} else {
+			// Recursively traverse directories
 			await traverseDirectory( filePath, callback );
 		}
 	}
@@ -37,11 +38,11 @@ const traverseDirectory = async ( dirPath, callback ) => {
  *
  * @returns string
  */
-String.prototype.ucwords = function() {
+String.prototype.ucwords = function () {
 	const str = this.toLowerCase();
 	return str.replace(
 		/(^([a-zA-Z\p{M}]))|([ -][a-zA-Z\p{M}])/g,
-		function(s){
+		function ( s ) {
 			return s.toLocaleUpperCase();
 		}
 	);
@@ -54,21 +55,32 @@ String.prototype.ucwords = function() {
 const buildTemplate = async ( filePath ) => {
 	console.log( 'Building %s', filePath );
 
-	const templateFile   = await readFile( filePath, 'utf-8' );
-	let renderedTemplate = templateFile, replacements;
+	const templateFile = await readFile( filePath, 'utf-8' );
+	let renderedTemplate = templateFile,
+		replacements;
 
 	if ( 'README.md' === filePath ) {
 		replacements = {
-			'EXAMPLE_REPO_NAME': repository.name,
-			'EXAMPLE_REPO_DESCRIPTION': repository.description ?? 'A spiffy new theme.',
-			'EXAMPLE_REPO_PLAYGROUND_URL': 'https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/' + repository.full_name + '/refs/heads/main/playground.json'
+			EXAMPLE_REPO_NAME: repository.name,
+			EXAMPLE_REPO_DESCRIPTION:
+				repository.description ?? 'A spiffy new theme.',
+			EXAMPLE_REPO_PLAYGROUND_URL:
+				'https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/' +
+				repository.full_name +
+				'/refs/heads/main/_playground/blueprint.json',
 		};
 	} else {
 		replacements = {
-			'Theme Repo Template': ( String(repository.name).replace( /[\W_]+/g, ' ' ).ucwords() ),
-			'ThemeRepoTemplate': ( String(repository.name).replace( /[\W_]+/g, ' ' ).ucwords().replace( ' ', '' ) ),
+			'Theme Repo Template': String( repository.name )
+				.replace( /[\W_]+/g, ' ' )
+				.ucwords(),
+			ThemeRepoTemplate: String( repository.name )
+				.replace( /[\W_]+/g, ' ' )
+				.ucwords()
+				.replace( ' ', '' ),
 			'theme-repo-template': repository.name.toLowerCase(),
-			'A starter theme for FSE.  Will generally be overwritten.': repository.description ?? 'A spiffy new theme.',
+			'A starter theme for FSE.  Will generally be overwritten.':
+				repository.description ?? 'A spiffy new theme.',
 			'georgestephanis/theme-repo-template': repository.full_name,
 		};
 	}

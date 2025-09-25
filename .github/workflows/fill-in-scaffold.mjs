@@ -78,10 +78,10 @@ const buildTemplate = async ( filePath ) => {
 				.replace( /[\W_]+/g, ' ' )
 				.ucwords()
 				.replace( ' ', '' ),
+			'georgestephanis/theme-repo-template': repository.full_name,
 			'theme-repo-template': repository.name.toLowerCase(),
 			'A starter theme for FSE.  Will generally be overwritten.':
 				repository.description ?? 'A spiffy new theme.',
-			'georgestephanis/theme-repo-template': repository.full_name,
 		};
 	}
 

@@ -16,6 +16,12 @@
     "repository": "https://github.com/georgestephanis/theme-repo-template",
     "bugs": "https://github.com/georgestephanis/theme-repo-template/issues",
     "private": false,
+    "files": [
+        "**",
+        "!.*",
+        "!.git/**",
+        "!_playground/*.zip"
+    ],
     "engines": {
         "node": ">=20.0",
         "npm": ">=10.0"
@@ -36,6 +42,7 @@
         "lint:css": "wp-scripts lint-style ./sass",
         "lint:js": "wp-scripts lint-js ./js",
         "build": "sass sass/style.scss:style.css --style=expanded --source-map",
-        "theme-zip": "wp-scripts plugin-zip"
+        "start": "sass --watch sass/style.scss:style.css --style=expanded --source-map",
+        "theme-zip": "wp-scripts plugin-zip && mv theme-repo-template.zip _playground/theme-repo-template.zip"
     }
 }

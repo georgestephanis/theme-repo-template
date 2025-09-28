@@ -20,7 +20,7 @@ function get_starter_content() {
 	// Define and register starter content to showcase the theme on new sites.
 	$starter_content = array(
 
-		'posts'     => array(
+		'posts'       => array(
 			'front' => array(
 				'post_type'    => 'page',
 				'post_title'   => esc_html_x( 'Front Page', 'Theme starter content', 'theme-repo-template' ),
@@ -56,7 +56,7 @@ function get_starter_content() {
 		),
 
 		// Default to a static front page and assign the front and posts pages.
-		'options'   => array(
+		'options'     => array(
 			'show_on_front'   => 'page',
 			'page_on_front'   => '{{front}}',
 			'page_for_posts'  => '{{blog}}',
@@ -66,7 +66,7 @@ function get_starter_content() {
 		),
 
 		// Set up nav menus for each of the two areas registered in the theme.
-		'nav_menus' => array(
+		'nav_menus'   => array(
 			// Assign a menu to the "primary" location.
 			'primary' => array(
 				'name'  => esc_html_x( 'Primary menu', 'Theme starter content', 'theme-repo-template' ),

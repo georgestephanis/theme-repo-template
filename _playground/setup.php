@@ -84,7 +84,7 @@ if ( ! empty( $starter_content['nav_menus'] ) && is_array( $starter_content['nav
 				continue;
 			}
 
-			$key = sprintf( '<!-- wp:navigation {"slug":"%s",', esc_attr( $slug ) );
+			$key               = sprintf( '<!-- wp:navigation {"slug":"%s",', esc_attr( $slug ) );
 			$nav_menus[ $key ] = sprintf( '<!-- wp:navigation {"ref":%d,', intval( $blocks_menu_id ) );
 		}
 	}

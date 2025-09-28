@@ -40,11 +40,13 @@ function enqueue_block_assets() {
  * @return void
  */
 function enqueue_block_editor_assets() {
+	$asset_file = require \get_theme_file_path( '/build/block-editor.asset.php' );
+
 	\wp_enqueue_script(
 		'theme-repo-template',
-		\get_theme_file_uri( 'js/block-editor.js' ),
-		array(),
-		(string) filemtime( __DIR__ . '/js/block-editor.js' ),
+		\get_theme_file_uri( 'build/block-editor.js' ),
+		$asset_file['dependencies'],
+		$asset_file['version'],
 		true
 	);
 }

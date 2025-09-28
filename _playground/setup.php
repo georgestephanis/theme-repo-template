@@ -19,7 +19,7 @@ $wp_rewrite->flush_rules();
  * Get the nav menu ids for each slug, and map them in.
  */
 
-require_once __DIR__ . '/../inc/starter-content.php';
+require_once __DIR__ . '/starter-content.php';
 
 $starter_content = \ThemeRepoTemplate\StarterContent\get_starter_content();
 $nav_menus       = array();

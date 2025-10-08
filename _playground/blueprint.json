@@ -20,20 +20,25 @@
 			}
 		},
 		{
+			"step": "resetData"
+		},
+		{
 			"step": "installTheme",
 			"themeData": {
 				"resource": "url",
 				"url": "https://github-proxy.com/proxy/?repo=georgestephanis/theme-repo-template"
 			},
 			"options": {
-				"activate": true
+				"activate": true,
+				"importStarterContent": true
 			}
 		},
 		{
-			"step": "resetData"
-		},
-		{
-			"step": "importThemeStarterContent"
+			"step": "importWxr",
+			"file": {
+				"resource": "url",
+				"url": "https://raw.githubusercontent.com/WordPress/theme-test-data/refs/heads/master/themeunittestdata.wordpress.xml"
+			}
 		},
 		{
 			"step": "runPHP",

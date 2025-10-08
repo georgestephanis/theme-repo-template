@@ -13,7 +13,7 @@ namespace ThemeRepoTemplate\Functions;
  * Set up any theme supports we may need, and starter content.
  */
 function on_after_setup_theme() {
-	require get_template_directory() . '/playground/starter-content.php';
+	require get_template_directory() . '/_playground/starter-content.php';
 	\add_theme_support( 'starter-content', \ThemeRepoTemplate\StarterContent\get_starter_content() );
 }
 \add_action( 'after_setup_theme', __NAMESPACE__ . '\on_after_setup_theme' );

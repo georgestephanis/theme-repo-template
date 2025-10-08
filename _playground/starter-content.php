@@ -12,7 +12,7 @@ namespace ThemeRepoTemplate\StarterContent;
 /**
  * Returns the array of starter content for the theme.
  *
- * Passes it through the `twombly_starter_content` filter before returning.
+ * Passes it through the `theme_repo_template_starter_content` filter before returning.
  *
  * @return array A filtered array of args for the starter_content.
  */
@@ -99,5 +99,5 @@ function get_starter_content() {
 	 *
 	 * @param array $starter_content Array of starter content.
 	 */
-	return apply_filters( 'gtheme_starter_content', $starter_content );
+	return apply_filters( 'theme_repo_template_starter_content', $starter_content );
 }

@@ -80,6 +80,9 @@ const buildTemplate = async ( filePath ) => {
 				.replace( ' ', '' ),
 			'georgestephanis/theme-repo-template': repository.full_name,
 			'theme-repo-template': repository.name.toLowerCase(),
+			theme_repo_template: repository.name
+				.toLowerCase()
+				.replace( /[^a-zA-Z0-9]/g, '_' ),
 			'A starter theme for FSE.  Will generally be overwritten.':
 				repository.description ?? 'A spiffy new theme.',
 		};

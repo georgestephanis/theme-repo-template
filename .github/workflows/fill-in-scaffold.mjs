@@ -77,7 +77,7 @@ const buildTemplate = async ( filePath ) => {
 			ThemeRepoTemplate: String( repository.name )
 				.replace( /[\W_]+/g, ' ' )
 				.ucwords()
-				.replace( ' ', '' ),
+				.replaceAll( ' ', '' ),
 			'georgestephanis/theme-repo-template': repository.full_name,
 			'theme-repo-template': repository.name.toLowerCase(),
 			theme_repo_template: repository.name

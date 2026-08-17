@@ -32,7 +32,9 @@ jobs:
         run: git commit -am "chore -- rename files from scaffolding"
 
       - name: Perform string replacements within the files.
-        run: node ./.github/workflows/fill-in-scaffold.mjs '${{ toJSON( github.event.repository ) }}'
+        env:
+          REPOSITORY_JSON: ${{ toJSON( github.event.repository ) }}
+        run: node ./.github/workflows/fill-in-scaffold.mjs "$REPOSITORY_JSON"
 
       - name: Delete and regenerate package-lock.json.
         run: |

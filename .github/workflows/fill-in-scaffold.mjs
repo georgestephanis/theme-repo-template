@@ -89,7 +89,9 @@ const buildTemplate = async ( filePath ) => {
 	}
 
 	for ( const [ key, value ] of Object.entries( replacements ) ) {
-		renderedTemplate = renderedTemplate.replaceAll( key, value );
+		// Use a function replacer so literal `$` sequences in `value` (e.g. `$&`, `$1`)
+		// aren't interpreted as special replacement patterns by String.replaceAll().
+		renderedTemplate = renderedTemplate.replaceAll( key, () => value );
 	}
 
 	if ( renderedTemplate !== templateFile ) {
